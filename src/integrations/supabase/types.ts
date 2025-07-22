@@ -14,6 +14,93 @@ export type Database = {
   }
   public: {
     Tables: {
+      cleaning_service_quote: {
+        Row: {
+          additional_notes: string | null
+          address: string | null
+          budget_range: string | null
+          city: string | null
+          company: string | null
+          created_at: string
+          email: string
+          frequency: string | null
+          id: string
+          is_urgent: boolean | null
+          name: string
+          number_of_rooms: number | null
+          phone: string | null
+          postal_code: string | null
+          preferred_time: string | null
+          property_type: string | null
+          quote_amount: number | null
+          quote_notes: string | null
+          quoted_at: string | null
+          requested_callback_time: string | null
+          service_type: string
+          special_requirements: string | null
+          square_footage: number | null
+          start_date: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          additional_notes?: string | null
+          address?: string | null
+          budget_range?: string | null
+          city?: string | null
+          company?: string | null
+          created_at?: string
+          email: string
+          frequency?: string | null
+          id?: string
+          is_urgent?: boolean | null
+          name: string
+          number_of_rooms?: number | null
+          phone?: string | null
+          postal_code?: string | null
+          preferred_time?: string | null
+          property_type?: string | null
+          quote_amount?: number | null
+          quote_notes?: string | null
+          quoted_at?: string | null
+          requested_callback_time?: string | null
+          service_type: string
+          special_requirements?: string | null
+          square_footage?: number | null
+          start_date?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          additional_notes?: string | null
+          address?: string | null
+          budget_range?: string | null
+          city?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string
+          frequency?: string | null
+          id?: string
+          is_urgent?: boolean | null
+          name?: string
+          number_of_rooms?: number | null
+          phone?: string | null
+          postal_code?: string | null
+          preferred_time?: string | null
+          property_type?: string | null
+          quote_amount?: number | null
+          quote_notes?: string | null
+          quoted_at?: string | null
+          requested_callback_time?: string | null
+          service_type?: string
+          special_requirements?: string | null
+          square_footage?: number | null
+          start_date?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       portfolio_projects: {
         Row: {
           category: string
