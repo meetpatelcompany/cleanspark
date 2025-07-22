@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import QuoteForm from "@/components/QuoteForm";
+import ServiceAreaMap from "@/components/ServiceAreaMap";
 import { 
   Shield, 
   Users, 
@@ -93,10 +96,10 @@ const HomePage = () => {
                 At Clean Spark Commercial Cleaning, we go beyond surface-level cleaning. We offer tailored cleaning solutions designed to meet the unique needs of businesses across the Greater Toronto Area, Hamilton, and Oakville. Whether you need weekly office cleanings, deep electrostatic disinfection, or dependable janitorial support, we deliver spotless results that make your workplace shine.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="cta" size="lg" asChild>
+                <Button variant="cta" size="lg" className="transform transition-all duration-300 hover:scale-105 active:scale-95" asChild>
                   <a href="#quote">Request a Free Quote Today</a>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
+                <Button variant="outline" size="lg" className="transform transition-all duration-300 hover:scale-105 active:scale-95" asChild>
                   <a href="tel:(416)555-0123" className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
                     (416) 555-0123
@@ -129,12 +132,12 @@ const HomePage = () => {
           
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
             {whyChooseUs.map((item, index) => (
-              <Card key={index} className="text-center hover:shadow-clean transition-all duration-300">
+              <Card key={index} className="text-center hover:shadow-clean transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group">
                 <CardContent className="p-6">
-                  <div className="bg-brand-blue-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="h-8 w-8 text-brand-blue" />
+                  <div className="bg-brand-blue-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-blue group-hover:animate-bounce-in transition-all duration-300">
+                    <item.icon className="h-8 w-8 text-brand-blue group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                  <h3 className="font-semibold text-foreground mb-2 group-hover:text-brand-blue transition-colors duration-300">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
                 </CardContent>
               </Card>
@@ -157,14 +160,14 @@ const HomePage = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-soft transition-all duration-300 group">
+              <Card key={index} className="hover:shadow-soft transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group">
                 <CardContent className="p-6">
-                  <div className="bg-brand-green-light rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:bg-brand-green group-hover:text-white transition-all duration-300">
-                    <service.icon className="h-8 w-8 text-brand-green group-hover:text-white" />
+                  <div className="bg-brand-green-light rounded-full w-16 h-16 flex items-center justify-center mb-4 group-hover:bg-brand-green group-hover:text-white group-hover:animate-pulse-glow transition-all duration-300">
+                    <service.icon className="h-8 w-8 text-brand-green group-hover:text-white transition-all duration-300" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{service.title}</h3>
+                  <h3 className="font-semibold text-foreground mb-2 group-hover:text-brand-green transition-colors duration-300">{service.title}</h3>
                   <p className="text-sm text-muted-foreground mb-4">{service.description}</p>
-                  <Button variant="link" className="p-0 h-auto text-brand-blue" asChild>
+                  <Button variant="link" className="p-0 h-auto text-brand-blue group-hover:text-brand-green transition-colors duration-300" asChild>
                     <a href={service.link}>Learn More →</a>
                   </Button>
                 </CardContent>
@@ -187,15 +190,24 @@ const HomePage = () => {
             Get your free, no-obligation quote today and discover how Clean Spark can transform your workplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
+            <Button variant="secondary" size="lg" className="transform transition-all duration-300 hover:scale-105 active:scale-95">
               Request a Free Quote Today
             </Button>
-            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue">
+            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue transform transition-all duration-300 hover:scale-105 active:scale-95">
               Call (416) 555-0123
             </Button>
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* Quote Form Section */}
+      <QuoteForm />
+
+      {/* Service Area Map */}
+      <ServiceAreaMap />
     </div>
   );
 };
