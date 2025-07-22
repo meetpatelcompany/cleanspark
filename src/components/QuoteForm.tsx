@@ -8,24 +8,86 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Building2, Calendar, MapPin } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const QuoteForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    company: "",
+    email: "",
+    phone: "",
+    location: "",
+    services: [] as string[],
+    details: ""
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleServiceChange = (service: string, checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      services: checked 
+        ? [...prev.services, service]
+        : prev.services.filter(s => s !== service)
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Quote Request Sent!",
-      description: "We'll contact you within 24 hours with a customized quote.",
-    });
-    
-    setIsSubmitting(false);
+    try {
+      const { error } = await supabase
+        .from('cleaning_service_quote')
+        .insert({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone || null,
+          company: formData.company,
+          service_type: formData.services.join(', '),
+          city: formData.location,
+          additional_notes: formData.details || null,
+          status: 'pending'
+        });
+
+      if (error) throw error;
+
+      toast({
+        title: "Quote Request Sent!",
+        description: "We'll contact you within 24 hours with a customized quote.",
+      });
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        company: "",
+        email: "",
+        phone: "",
+        location: "",
+        services: [],
+        details: ""
+      });
+      
+      // Reset form fields
+      const form = e.target as HTMLFormElement;
+      form.reset();
+      
+    } catch (error) {
+      console.error('Error submitting quote:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit quote request. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -85,33 +147,64 @@ const QuoteForm = () => {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="firstName">First Name *</Label>
-                    <Input id="firstName" required className="transition-all duration-300 focus:scale-105" />
+                    <Input 
+                      id="firstName" 
+                      value={formData.firstName}
+                      onChange={(e) => handleInputChange('firstName', e.target.value)}
+                      required 
+                      className="transition-all duration-300 focus:scale-105" 
+                    />
                   </div>
                   <div>
                     <Label htmlFor="lastName">Last Name *</Label>
-                    <Input id="lastName" required className="transition-all duration-300 focus:scale-105" />
+                    <Input 
+                      id="lastName" 
+                      value={formData.lastName}
+                      onChange={(e) => handleInputChange('lastName', e.target.value)}
+                      required 
+                      className="transition-all duration-300 focus:scale-105" 
+                    />
                   </div>
                 </div>
                 
                 <div>
                   <Label htmlFor="company">Company Name *</Label>
-                  <Input id="company" required className="transition-all duration-300 focus:scale-105" />
+                  <Input 
+                    id="company" 
+                    value={formData.company}
+                    onChange={(e) => handleInputChange('company', e.target.value)}
+                    required 
+                    className="transition-all duration-300 focus:scale-105" 
+                  />
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="email">Email *</Label>
-                    <Input id="email" type="email" required className="transition-all duration-300 focus:scale-105" />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      required 
+                      className="transition-all duration-300 focus:scale-105" 
+                    />
                   </div>
                   <div>
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" className="transition-all duration-300 focus:scale-105" />
+                    <Input 
+                      id="phone" 
+                      type="tel" 
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      className="transition-all duration-300 focus:scale-105" 
+                    />
                   </div>
                 </div>
                 
                 <div>
                   <Label htmlFor="location">Service Location *</Label>
-                  <Select required>
+                  <Select value={formData.location} onValueChange={(value) => handleInputChange('location', value)} required>
                     <SelectTrigger className="transition-all duration-300 focus:scale-105">
                       <SelectValue placeholder="Select your location" />
                     </SelectTrigger>
@@ -139,7 +232,11 @@ const QuoteForm = () => {
                       "Supply Restocking"
                     ].map((service) => (
                       <div key={service} className="flex items-center space-x-2">
-                        <Checkbox id={service.toLowerCase().replace(/\s+/g, '-')} />
+                        <Checkbox 
+                          id={service.toLowerCase().replace(/\s+/g, '-')} 
+                          checked={formData.services.includes(service)}
+                          onCheckedChange={(checked) => handleServiceChange(service, checked as boolean)}
+                        />
                         <Label 
                           htmlFor={service.toLowerCase().replace(/\s+/g, '-')}
                           className="text-sm cursor-pointer"
@@ -155,6 +252,8 @@ const QuoteForm = () => {
                   <Label htmlFor="details">Additional Details</Label>
                   <Textarea 
                     id="details" 
+                    value={formData.details}
+                    onChange={(e) => handleInputChange('details', e.target.value)}
                     placeholder="Tell us about your space size, cleaning frequency preferences, special requirements, etc."
                     className="transition-all duration-300 focus:scale-105"
                   />
