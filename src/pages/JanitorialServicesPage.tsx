@@ -59,11 +59,11 @@ const JanitorialServicesPage = () => {
                 From day porter services to nightly clean-ups, Clean Spark offers reliable janitorial solutions that keep your space consistently clean. Our trained staff is punctual, discreet, and always professional.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="cta" size="lg">
-                  Get a Janitorial Quote
+                <Button variant="cta" size="lg" asChild>
+                  <a href="#quote">Get a Janitorial Quote</a>
                 </Button>
-                <Button variant="outline" size="lg">
-                  View Services
+                <Button variant="outline" size="lg" asChild>
+                  <a href="#quote">View Services</a>
                 </Button>
               </div>
             </div>
@@ -231,11 +231,11 @@ const JanitorialServicesPage = () => {
             Let us handle the cleaning so you can focus on running your business. Get a custom janitorial quote today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Get a Janitorial Quote
+            <Button variant="secondary" size="lg" asChild>
+              <a href="#quote">Get a Janitorial Quote</a>
             </Button>
-            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue">
-              Call (416) 555-0123
+            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue" asChild>
+              <a href="tel:(416)555-0123">Call (416) 555-0123</a>
             </Button>
           </div>
         </div>

@@ -59,11 +59,11 @@ const OfficeCleaningPage = () => {
                 Clean Spark specializes in keeping your office environment immaculate and professional. We understand the importance of first impressions and employee well-being. That's why our team delivers detailed weekly cleanings, customized to your specific layout and business hours.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="cta" size="lg">
-                  Book a Consultation
+                <Button variant="cta" size="lg" asChild>
+                  <a href="#quote">Book a Consultation</a>
                 </Button>
-                <Button variant="outline" size="lg">
-                  Get Free Quote
+                <Button variant="outline" size="lg" asChild>
+                  <a href="#quote">Get Free Quote</a>
                 </Button>
               </div>
             </div>
@@ -156,11 +156,11 @@ const OfficeCleaningPage = () => {
             Every office is unique. We'll work with you to develop a cleaning plan that fits your space, schedule, and budget perfectly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Book a Consultation
+            <Button variant="secondary" size="lg" asChild>
+              <a href="#quote">Book a Consultation</a>
             </Button>
-            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue">
-              Call (416) 555-0123
+            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue" asChild>
+              <a href="tel:(416)555-0123">Call (416) 555-0123</a>
             </Button>
           </div>
         </div>

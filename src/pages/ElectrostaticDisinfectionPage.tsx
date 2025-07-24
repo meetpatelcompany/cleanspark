@@ -53,11 +53,11 @@ const ElectrostaticDisinfectionPage = () => {
                 Protect your staff and clients with Clean Spark's cutting-edge electrostatic disinfection service. Our EPA-approved disinfectants are sprayed using advanced equipment that covers even the most hard-to-reach surfaces.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="cta" size="lg">
-                  Schedule a Disinfection Service
+                <Button variant="cta" size="lg" asChild>
+                  <a href="#quote">Schedule a Disinfection Service</a>
                 </Button>
-                <Button variant="outline" size="lg">
-                  Learn More
+                <Button variant="outline" size="lg" asChild>
+                  <a href="#quote">Learn More</a>
                 </Button>
               </div>
             </div>
@@ -191,11 +191,11 @@ const ElectrostaticDisinfectionPage = () => {
             Give your employees and customers the confidence that comes with knowing your space is professionally disinfected.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Schedule a Disinfection Service
+            <Button variant="secondary" size="lg" asChild>
+              <a href="#quote">Schedule a Disinfection Service</a>
             </Button>
-            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue">
-              Call (416) 555-0123
+            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue" asChild>
+              <a href="tel:(416)555-0123">Call (416) 555-0123</a>
             </Button>
           </div>
         </div>
