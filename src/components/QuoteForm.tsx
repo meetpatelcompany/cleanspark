@@ -91,7 +91,7 @@ const QuoteForm = () => {
   };
 
   return (
-    <section className="py-20 bg-professional-gray">
+    <section id="quote" className="py-20 bg-professional-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="animate-fade-in">

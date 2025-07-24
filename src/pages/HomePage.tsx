@@ -190,11 +190,11 @@ const HomePage = () => {
             Get your free, no-obligation quote today and discover how Clean Spark can transform your workplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" className="transform transition-all duration-300 hover:scale-105 active:scale-95">
-              Request a Free Quote Today
+            <Button variant="secondary" size="lg" className="transform transition-all duration-300 hover:scale-105 active:scale-95" asChild>
+              <a href="#quote">Request a Free Quote Today</a>
             </Button>
-            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue transform transition-all duration-300 hover:scale-105 active:scale-95">
-              Call (416) 555-0123
+            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue transform transition-all duration-300 hover:scale-105 active:scale-95" asChild>
+              <a href="tel:(416)555-0123">Call (416) 555-0123</a>
             </Button>
           </div>
         </div>
