@@ -1,84 +1,57 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  QrCode, 
-  Clock, 
-  MessageSquare, 
-  BarChart3, 
-  Shield, 
-  Users,
-  CheckCircle,
-  Smartphone,
-  ClipboardCheck,
-  TrendingUp
-} from "lucide-react";
-
+import { QrCode, Clock, MessageSquare, BarChart3, Shield, Users, CheckCircle, Smartphone, ClipboardCheck, TrendingUp } from "lucide-react";
 const HowWeWorkPage = () => {
-  const processSteps = [
-    {
-      icon: QrCode,
-      title: "Personalized QR Code",
-      description: "Each organization receives a unique QR code for secure access tracking",
-      details: "Your organization gets a custom QR code placed at your facility for easy worker check-in/check-out"
-    },
-    {
-      icon: Smartphone,
-      title: "Worker Check-In",
-      description: "Our professional staff scan the QR code upon arrival",
-      details: "Workers use their mobile devices to scan your QR code, instantly logging their arrival time"
-    },
-    {
-      icon: ClipboardCheck,
-      title: "Service Execution",
-      description: "Complete cleaning services according to your customized plan",
-      details: "Our team follows your specific cleaning checklist and quality standards throughout the service"
-    },
-    {
-      icon: Clock,
-      title: "Time Tracking",
-      description: "Automatic time logging for complete transparency",
-      details: "Every minute is tracked from check-in to check-out, providing accurate service duration records"
-    },
-    {
-      icon: MessageSquare,
-      title: "Real-Time Feedback",
-      description: "Provide instant feedback on service quality",
-      details: "Rate our service, leave comments, and report any issues directly through our system"
-    },
-    {
-      icon: BarChart3,
-      title: "Performance Analytics",
-      description: "Access detailed reports on service quality and timing",
-      details: "View comprehensive reports on service history, timing patterns, and quality metrics"
-    }
-  ];
-
-  const systemFeatures = [
-    {
-      icon: Shield,
-      title: "Secure Access Control",
-      description: "QR codes ensure only authorized personnel access your facility"
-    },
-    {
-      icon: Clock,
-      title: "Accurate Time Tracking",
-      description: "Precise logging of arrival and departure times for transparent billing"
-    },
-    {
-      icon: TrendingUp,
-      title: "Performance Monitoring",
-      description: "Real-time tracking of cleaning quality and efficiency metrics"
-    },
-    {
-      icon: MessageSquare,
-      title: "Instant Communication",
-      description: "Direct feedback channel between you and our cleaning teams"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const processSteps = [{
+    icon: QrCode,
+    title: "Personalized QR Code",
+    description: "Each organization receives a unique QR code for secure access tracking",
+    details: "Your organization gets a custom QR code placed at your facility for easy worker check-in/check-out"
+  }, {
+    icon: Smartphone,
+    title: "Worker Check-In",
+    description: "Our professional staff scan the QR code upon arrival",
+    details: "Workers use their mobile devices to scan your QR code, instantly logging their arrival time"
+  }, {
+    icon: ClipboardCheck,
+    title: "Service Execution",
+    description: "Complete cleaning services according to your customized plan",
+    details: "Our team follows your specific cleaning checklist and quality standards throughout the service"
+  }, {
+    icon: Clock,
+    title: "Time Tracking",
+    description: "Automatic time logging for complete transparency",
+    details: "Every minute is tracked from check-in to check-out, providing accurate service duration records"
+  }, {
+    icon: MessageSquare,
+    title: "Real-Time Feedback",
+    description: "Provide instant feedback on service quality",
+    details: "Rate our service, leave comments, and report any issues directly through our system"
+  }, {
+    icon: BarChart3,
+    title: "Performance Analytics",
+    description: "Access detailed reports on service quality and timing",
+    details: "View comprehensive reports on service history, timing patterns, and quality metrics"
+  }];
+  const systemFeatures = [{
+    icon: Shield,
+    title: "Secure Access Control",
+    description: "QR codes ensure only authorized personnel access your facility"
+  }, {
+    icon: Clock,
+    title: "Accurate Time Tracking",
+    description: "Precise logging of arrival and departure times for transparent billing"
+  }, {
+    icon: TrendingUp,
+    title: "Performance Monitoring",
+    description: "Real-time tracking of cleaning quality and efficiency metrics"
+  }, {
+    icon: MessageSquare,
+    title: "Instant Communication",
+    description: "Direct feedback channel between you and our cleaning teams"
+  }];
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-brand-blue-light to-professional-gray py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,16 +88,13 @@ const HowWeWorkPage = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {processSteps.map((step, index) => (
-              <Card key={index} className="hover:shadow-clean transition-all duration-300 transform hover:-translate-y-2 group">
+            {processSteps.map((step, index) => <Card key={index} className="hover:shadow-clean transition-all duration-300 transform hover:-translate-y-2 group">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="bg-brand-blue-light rounded-full w-12 h-12 flex items-center justify-center mr-4 group-hover:bg-brand-blue transition-all duration-300">
                       <step.icon className="h-6 w-6 text-brand-blue group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <div className="bg-brand-green text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
-                      {index + 1}
-                    </div>
+                    
                   </div>
                   <h3 className="font-semibold text-foreground mb-2 group-hover:text-brand-blue transition-colors duration-300">
                     {step.title}
@@ -132,8 +102,7 @@ const HowWeWorkPage = () => {
                   <p className="text-sm text-muted-foreground mb-3">{step.description}</p>
                   <p className="text-xs text-muted-foreground">{step.details}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -151,8 +120,7 @@ const HowWeWorkPage = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {systemFeatures.map((feature, index) => (
-              <Card key={index} className="hover:shadow-soft transition-all duration-300 transform hover:-translate-y-2 group">
+            {systemFeatures.map((feature, index) => <Card key={index} className="hover:shadow-soft transition-all duration-300 transform hover:-translate-y-2 group">
                 <CardContent className="p-6 text-center">
                   <div className="bg-brand-green-light rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-green transition-all duration-300">
                     <feature.icon className="h-8 w-8 text-brand-green group-hover:text-white transition-colors duration-300" />
@@ -162,8 +130,7 @@ const HowWeWorkPage = () => {
                   </h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -245,8 +212,6 @@ const HowWeWorkPage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default HowWeWorkPage;
