@@ -240,7 +240,7 @@ const HowWeWorkPage = () => {
               <a href="#quote">Request Free Quote</a>
             </Button>
             <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue transform transition-all duration-300 hover:scale-105" asChild>
-              <a href="tel:(416)555-0123">Call (416) 555-0123</a>
+              <a href="tel:(905)213-0405">Call (905) 213-0405</a>
             </Button>
           </div>
         </div>
