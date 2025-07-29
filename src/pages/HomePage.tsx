@@ -28,7 +28,7 @@ const HomePage = () => {
     },
     {
       icon: Shield,
-      title: "Fully insured & bonded professionals",
+      title: "Innsured & bonded",
       description: "Complete protection and peace of mind"
     },
     {
