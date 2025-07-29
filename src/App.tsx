@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
+import HowWeWorkPage from "./pages/HowWeWorkPage";
 import OfficeCleaningPage from "./pages/OfficeCleaningPage";
 import ElectrostaticDisinfectionPage from "./pages/ElectrostaticDisinfectionPage";
 import JanitorialServicesPage from "./pages/JanitorialServicesPage";
@@ -23,6 +24,7 @@ const App = () => (
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/how-we-work" element={<HowWeWorkPage />} />
           <Route path="/office-cleaning" element={<OfficeCleaningPage />} />
           <Route path="/electrostatic-disinfection" element={<ElectrostaticDisinfectionPage />} />
           <Route path="/janitorial-services" element={<JanitorialServicesPage />} />
