@@ -201,7 +201,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <TestimonialsSection />
+{/*       <TestimonialsSection /> */}
 
       {/* Quote Form Section */}
       <QuoteForm />
