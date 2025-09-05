@@ -484,7 +484,7 @@ const JanitorialServicesPage = () => {
               <a href="#quote">Get a Janitorial Quote</a>
             </Button>
             <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue" asChild>
-              <a href="tel:(905)213-0405">Call (905) 213-0405</a>
+              <a href="tel:(647)327-5661">Call (647) 327-5661</a>
             </Button>
           </div>
         </div>

@@ -63,19 +63,19 @@ const ServiceAreaMap = () => {
                 <div className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-muted-foreground" />
                   <a 
-                    href="tel:(416)555-0123" 
+                    href="tel:(647)327-5661" 
                     className="text-brand-blue hover:underline transition-colors duration-300"
                   >
-                    (416) 555-0123
+                    (647) 327-5661
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-muted-foreground" />
                   <a 
-                    href="mailto:info@cleansparkcommercial.com" 
+                    href="mailto:cleansparkcommercial@gmail.com" 
                     className="text-brand-blue hover:underline transition-colors duration-300"
                   >
-                    info@cleansparkcommercial.com
+                    cleansparkcommercial@gmail.com
                   </a>
                 </div>
                 <div className="flex items-start gap-3">
